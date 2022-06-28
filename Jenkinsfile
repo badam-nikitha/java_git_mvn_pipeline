@@ -33,7 +33,14 @@ pipeline{
             steps{
                 sh "mvn package"
             }
-        }    
+        }   
+        stage('email')
+        {
+            steps{
+        
+                emailext body: 'Build success', replyTo: 'badamnikitha2@gmail.com', subject: 'test report', to: 'badamnikitha2@gmail.com'
+            }
+        }
             
 
         
